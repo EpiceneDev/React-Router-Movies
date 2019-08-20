@@ -3,11 +3,12 @@ import axios from 'axios'
 import MovieCard from './MovieCard'
 
 const Movie = props => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState();
   console.log("Movie: ", props);
   const id = props.match.params.id;
+
   useEffect(() => {
-    console.log("ID... ", props.id)
+    
   
     
     console.log("Movie id = ", id)
@@ -17,7 +18,7 @@ const Movie = props => {
       .get(`http://localhost:5000/api/movies/${id}`)
       .then(response => {
         setMovie(response.data);
-        console.log("HERE", response.data);
+        console.log("MOVIE response.data; ", response.data);
       })
       .catch(error => {
         console.error('Movie Server Error', error);
