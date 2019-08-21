@@ -23,21 +23,22 @@ const Movie = props => {
       .catch(error => {
         console.error('Movie Server Error', error);
       });
-  }, [id])
+  }, [id]);
 
   
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
-
-  if (!movie) {
-    return <div>Loading movie information...</div>;
+  const saveMovie = () => {
+    console.log(props)
+    const addToSavedList = props.addToSavedList;
+    addToSavedList(movie)
   }
 
+  if (!movie) {
+    return <div>Loading movie information...</div>
+  };
+
   return (
-    <MovieCard movie={movie} {...props} />
+    <MovieCard movie={movie} />
   );
 }
 

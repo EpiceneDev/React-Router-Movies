@@ -25,7 +25,7 @@ const MovieCard = ({movie}) => {
             </div>
           ))}
         </div>
-        <div className="save-button">Save</div>
+        <Link to={`/movie/SavedList`} {...props} className="save-button">Save</Link>
       </div>
     </Link>
   );;
