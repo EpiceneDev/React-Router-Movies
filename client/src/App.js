@@ -8,7 +8,9 @@ const App = () => {
   const [savedList, setSavedList] = useState( [] );
 
   const addToSavedList = movie => {
+    if (!savedList.includes(movie)) {
     setSavedList( [...savedList, movie] );
+    }
   };
 
   return (
@@ -24,7 +26,7 @@ const App = () => {
         </li> */}
       </ul>
       <Route exact path='/' component={MovieList}  />
-      <Route exact path='/movies/:id' render={props => (<Movie {...props} />)} />
+      <Route exact path='/movies/:id' render={props => (<Movie {...props} addToSavedList={addToSavedList} />)} />
     </div>
   );
 };
